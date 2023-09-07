@@ -131,6 +131,10 @@ for cmd in "${commands[@]}"; do
     if [ "$prod" = true ]; then
         echo "Sleeping for 3 second..."
         sleep 3
+    else
+        # sleep 50ms between commands to allow transactions 
+        # to be processed and avoid nonce errors
+        sleep 0.05 
     fi
 done
 
